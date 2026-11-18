@@ -1,3 +1,4 @@
+
 package com.desarrollo.webservices.services;
 
 import com.desarrollo.webservices.model.Usuario;
@@ -29,29 +30,27 @@ public class UsuarioServices {
                 request, HttpResponse.BodyHandlers.ofString()
         );
 
-        if (response.statusCode() == 200) {
+        if (response.statusCode() != 200) {
             throw new IOException("Error al obtener el usuario");
         }
 
         ObjectMapper mapper = new ObjectMapper();
         JsonNode datos = mapper.readTree(response.body());
 
-        if(!datos.isArray()){
+        if (!datos.isArray()) {
             throw new IOException("Error al obtener el usuario");
         }
 
         List<Usuario> usuarios = new ArrayList<>();
         for (JsonNode nodo : datos) {
             Usuario usuario = new Usuario(
-                    nodo.path("id"). asInt(),
+                    nodo.path("id").asInt(),
                     nodo.path("name").asText(),
                     nodo.path("username").asText(),
                     nodo.path("email").asText(),
                     nodo.path("phone").asText(),
-                    nodo.path("address").path(
-                            "city").asText(),
-                    nodo.path("company").path(
-                            "name").asText()
+                    nodo.path("address").path("city").asText(),
+                    nodo.path("company").path("name").asText()
             );
             usuarios.add(usuario);
         }

@@ -1,3 +1,4 @@
+
 package com.desarrollo.webservices.controller;
 
 import com.desarrollo.webservices.model.Usuario;
@@ -13,13 +14,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
 
-
 public class UsuarioController {
 
     @FXML
     private TableView<Usuario> tblUsuarios;
     @FXML
-    private TableColumn<Usuario, String> colId;
+    private TableColumn<Usuario, Integer> colId;
     @FXML
     private TableColumn<Usuario, String> colNombre;
     @FXML
@@ -37,15 +37,15 @@ public class UsuarioController {
     @FXML
     private Label lblEstado;
 
-
     private final UsuarioServices service = new UsuarioServices();
 
     @FXML
     private void initialize() {
 
         tblUsuarios.setEditable(false);
+
         colId.setCellValueFactory(
-                new PropertyValueFactory<>("ID")
+                new PropertyValueFactory<>("id")
         );
 
         colNombre.setCellValueFactory(
@@ -53,7 +53,7 @@ public class UsuarioController {
         );
 
         colEmail.setCellValueFactory(
-                new PropertyValueFactory<>("correo")
+                new PropertyValueFactory<>("email")
         );
 
         colUsername.setCellValueFactory(
@@ -89,6 +89,7 @@ public class UsuarioController {
         );
 
         lblEstado.setText("Consultando API Rest.....");
+
         task.setOnSucceeded(event -> {
             List<Usuario> usuarios = task.getValue();
             tblUsuarios.setItems(FXCollections.observableArrayList(usuarios));
@@ -105,5 +106,4 @@ public class UsuarioController {
         hilo.setDaemon(true);
         hilo.start();
     }
-
 }
