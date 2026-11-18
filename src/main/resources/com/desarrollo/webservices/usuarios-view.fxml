@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="650.0" prefWidth="1100.0" spacing="15.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.desarrollo.webservices.controller.UsuarioController">
+
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+    </padding>
+
+    <children>
+
+        <Label text="Consulta de usuarios - API REST">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+
+        <HBox alignment="CENTER_LEFT" spacing="12.0">
+
+            <children>
+
+                <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#consultarUsuarios" text="Consultar usuarios" />
+
+                <Label fx:id="lblEstado" text="Presione Consultar usuarios" />
+
+            </children>
+
+        </HBox>
+
+        <TableView fx:id="tblUsuarios" VBox.vgrow="ALWAYS">
+
+            <columns>
+
+                <TableColumn fx:id="colId" prefWidth="80.0" text="ID" />
+
+                <TableColumn fx:id="colNombre" prefWidth="160.0" text="Nombre" />
+
+                <TableColumn fx:id="colUsername" prefWidth="140.0" text="Username" />
+
+                <TableColumn fx:id="colEmail" prefWidth="190.0" text="Correo" />
+
+                <TableColumn fx:id="colTelefono" prefWidth="150.0" text="Teléfono" />
+
+                <TableColumn fx:id="colCiudad" prefWidth="140.0" text="Ciudad" />
+
+                <TableColumn fx:id="colEmpresa" prefWidth="170.0" text="Empresa" />
+
+            </columns>
+
+            <placeholder>
+                <Label text="Tabla sin contenido" />
+            </placeholder>
+
+        </TableView>
+
+    </children>
+
+</VBox>
