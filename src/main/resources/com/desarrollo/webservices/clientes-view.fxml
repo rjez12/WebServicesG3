@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="650.0" prefWidth="1300.0" spacing="15.0" style="-fx-background-color: white;"
+      xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.desarrollo.webservices.controller.ClienteController">
+
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+    </padding>
+
+    <children>
+        <Label text="Consulta de clientes - Supabase">
+            <font><Font name="System Bold" size="22.0" /></font>
+        </Label>
+
+        <HBox alignment="CENTER_LEFT" spacing="12.0">
+            <children>
+                <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#consultarClientes" text="Consultar clientes" />
+                <Label fx:id="lblEstado" text="Presione Consultar clientes" />
+            </children>
+        </HBox>
+
+        <TableView fx:id="tblClientes" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="colNombre" prefWidth="160.0" text="Nombre" />
+                <TableColumn fx:id="colEmail" prefWidth="210.0" text="Correo" />
+                <TableColumn fx:id="colTelefono" prefWidth="120.0" text="Teléfono" />
+                <TableColumn fx:id="colPais" prefWidth="100.0" text="País" />
+                <TableColumn fx:id="colCiudad" prefWidth="110.0" text="Ciudad" />
+                <TableColumn fx:id="colIngreso" prefWidth="110.0" text="Ingreso anual" />
+                <TableColumn fx:id="colCredito" prefWidth="90.0" text="Crédito" />
+                <TableColumn fx:id="colDeuda" prefWidth="70.0" text="Deuda" />
+                <TableColumn fx:id="colMontoDeuda" prefWidth="110.0" text="Monto deuda" />
+                <TableColumn fx:id="colEstado" prefWidth="90.0" text="Estado" />
+            </columns>
+            <placeholder>
+                <Label text="Tabla sin contenido" />
+            </placeholder>
+        </TableView>
+    </children>
+</VBox>

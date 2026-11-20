@@ -14,12 +14,12 @@ public class UsuarioApplication extends Application {
     public void start(Stage stage) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(
-                UsuarioApplication.class.getResource("usuarios-view.fxml")
+                UsuarioApplication.class.getResource("clientes-view.fxml")
         );
 
         Scene scene = new Scene(fxmlLoader.load());
 
-        stage.setTitle("Consulta de usuarios - API REST");
+        stage.setTitle("Consulta de usuarios - SUPABASE");
         stage.setScene(scene);
         stage.show();
     }
